@@ -1,0 +1,50 @@
+*********************************************
+Ocache 0.1 - INSTALL
+*********************************************
+
+Thank you for downloading Ocache. This text will guide you 
+through the basics of installation.
+
+TABLE OF CONTENT :
+
+  1. REQUIREMENTS
+  2. INSTALLATION
+  3. TROUBLESHOOTING
+
+
+REQUIREMENTS
+============
+
+To install Ocache on a computer, whether locally or remotely, 
+you need the following on your machine:
+
+1. One of the following Operating systems:
+
+        Linux / BSD / Unix
+        Windows
+        MacOs X.
+
+2. Apache web server (httpd) and mod_rewrite
+
+3. PHP scripting language
+
+INSTALLATION
+============
+
+1. Create a direcory and name it "cache" in your web root. (this is important :) )
+2. Open "config.php" and change "$my_cache_web_root" to your webroot.
+3. Change "$my_cache_duration" to your prefered cacheing duration (second).
+4. Change "$my_cache_level" with G, P, C and S to set caching level
+   (read comments in config file for more informations)
+5. Make sure you installed "mod_rewrite" and "AllowOverride" set to "All" for your web root.
+6. Create a file ".htaccess" in your web root and copy/paste following string in it:
+   RewriteEngine On
+   RewriteCond %{REQUEST_URI} !^/cache/
+   RewriteRule ^/([/a-zA-Z0-9\-\_\.]+\.(php))$ /cache/cache.php?my_cache_file_path=$1&%{QUERY_STRING} [L]
+7. Change mode of included "cache" directory to 777.
+
+TROUBLESHOOTING
+===============
+
+1. If you want to submit a bug, please email me at <webmaster@oxygenws.com>
+   or post a comment in my blog at <http://oxygenws.com/blog/archives/33-PHP.html>.

@@ -1,0 +1,6 @@
+read INSTALL file.
+
+- you can define "NO_NO_CACHE" in your program to disable caching system for that file.
+- call my_cache_del($filename) to delete cached data for this file.
+
+NOTE: take care of GPCS (for more information about GPCS, read config.php comments)
